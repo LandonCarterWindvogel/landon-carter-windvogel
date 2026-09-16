@@ -1,0 +1,3035 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Landon Carter Windvogel - Digital & Technology Studio | Web Design, Development & IT Support</title>
+
+  <meta
+    name="description"
+    content="Landon Carter Windvogel is a digital &amp; technology studio in Plettenberg Bay, South Africa, specialising in high-performance web design, development, digital products, SEO, and practical PC and laptop support."
+  >
+
+  <meta name="author" content="Landon Carter Windvogel">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+
+  <!--
+    TODO:
+    Replace this placeholder URL once your Netlify site is live.
+    Update:
+    - canonical
+    - og:url
+    - JSON-LD url
+    - any future social preview URLs
+  -->
+  <link
+    rel="canonical"
+    href="https://REPLACE-WITH-YOUR-NETLIFY-OR-CUSTOM-DOMAIN.example/"
+  >
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Landon Carter Windvogel - Digital & Technology Studio">
+  <meta
+    property="og:description"
+    content="Web design, development, digital products and practical technology support — from one studio, from brief to finished result."
+  >
+  <meta
+    property="og:url"
+    content="https://REPLACE-WITH-YOUR-NETLIFY-OR-CUSTOM-DOMAIN.example/"
+  >
+  <meta property="og:locale" content="en_ZA">
+  <meta property="og:site_name" content="Landon Carter Windvogel">
+
+  <!-- TODO: Add your final 1200×630 social image later. -->
+  <!--
+  <meta
+    property="og:image"
+    content="https://REPLACE-WITH-YOUR-DOMAIN.example/og-image.jpg"
+  >
+  <meta
+    property="og:image:alt"
+    content="Landon Carter Windvogel — Digital & Technology Studio"
+  >
+  -->
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta
+    name="twitter:title"
+    content="Landon Carter Windvogel — Digital & Technology Studio"
+  >
+  <meta
+    name="twitter:description"
+    content="High-performance websites, digital products and practical technology support, built and delivered from Plettenberg Bay."
+  >
+
+  <!-- TODO: Add your final social image later. -->
+  <!--
+  <meta
+    name="twitter:image"
+    content="https://REPLACE-WITH-YOUR-DOMAIN.example/og-image.jpg"
+  >
+  -->
+
+  <meta name="theme-color" content="#111111">
+  <meta name="color-scheme" content="dark light">
+
+  <link
+    rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23111111'/%3E%3Cpath d='M50 18 L65 82 L35 82 Z' fill='none' stroke='%23f1f0eb' stroke-width='6'/%3E%3Ccircle cx='50' cy='29' r='4' fill='%23f1f0eb'/%3E%3C/svg%3E"
+  >
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Landon Carter Windvogel — Digital & Technology Studio",
+    "url": "https://REPLACE-WITH-YOUR-NETLIFY-OR-CUSTOM-DOMAIN.example/",
+    "founder": {
+      "@type": "Person",
+      "name": "Landon Carter Windvogel",
+      "url": "https://github.com/LandonCarterWindvogel",
+      "jobTitle": "Founder · Digital & Technology Studio",
+      "sameAs": [
+        "https://github.com/LandonCarterWindvogel"
+      ]
+    },
+    "areaServed": "South Africa",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Plettenberg Bay",
+      "addressRegion": "Western Cape",
+      "addressCountry": "ZA"
+    },
+    "description": "Digital & technology studio designing and building high-performance websites, digital products and practical technology solutions, while providing PC and laptop support.",
+    "serviceType": [
+      "Web design",
+      "Web development",
+      "Digital products",
+      "SEO",
+      "Performance optimisation",
+      "PC support",
+      "Laptop support"
+    ],
+    "knowsAbout": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Responsive Web Design",
+      "Mobile-First Development",
+      "Semantic HTML",
+      "Accessibility",
+      "SEO",
+      "Git",
+      "GitHub",
+      "Netlify",
+      "Performance Optimisation",
+      "Progressive Web Apps"
+    ],
+    "sameAs": [
+      "https://github.com/LandonCarterWindvogel"
+    ]
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --bg: #111111;
+      --surface: #171717;
+      --surface-2: #1e1e1e;
+      --ink: #f1f0eb;
+      --muted: #a5a39d;
+      --muted-2: #6f6d67;
+      --line: rgba(241,240,235,.14);
+      --line-soft: rgba(241,240,235,.08);
+      --accent: #d8ff4f;
+      --accent-ink: #111111;
+      --max: 1440px;
+      --gutter: clamp(1rem, 4vw, 4rem);
+      --radius: 10px;
+
+      --display: "Space Grotesk", sans-serif;
+      --body: "DM Sans", sans-serif;
+      --mono: "DM Mono", monospace;
+
+      --ease: cubic-bezier(.16,1,.3,1);
+      --shadow: 0 26px 44px -24px rgba(0,0,0,.55);
+    }
+
+    html[data-theme="light"] {
+      --bg: #e9e8e3;
+      --surface: #f2f1ec;
+      --surface-2: #ffffff;
+      --ink: #111111;
+      --muted: #5d5b56;
+      --muted-2: #77746d;
+      --line: rgba(17,17,17,.15);
+      --line-soft: rgba(17,17,17,.08);
+      --accent: #111111;
+      --accent-ink: #f1f0eb;
+      --shadow: 0 26px 44px -24px rgba(17,17,17,.25);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--body);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    img,
+    svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: var(--accent-ink);
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    [id] {
+      scroll-margin-top: 7rem;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: -4rem;
+      left: 1rem;
+      z-index: 500;
+      background: var(--accent);
+      color: var(--accent-ink);
+      padding: .7rem 1rem;
+      text-decoration: none;
+      font-family: var(--mono);
+      font-size: .8rem;
+    }
+
+    .skip-link:focus {
+      top: 1rem;
+    }
+
+    .shell {
+      width: min(100% - (var(--gutter) * 2), var(--max));
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .65rem;
+      margin: 0;
+      color: var(--muted);
+      font: 500 .72rem/1 var(--mono);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 26px;
+      height: 1px;
+      background: var(--ink);
+      opacity: .5;
+    }
+
+    .display {
+      font-family: var(--display);
+      letter-spacing: -.055em;
+    }
+
+    /* Navigation */
+
+    .topbar {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 200;
+      padding: 1.2rem 0;
+      background: linear-gradient(180deg, rgba(17,17,17,.8), transparent);
+    }
+
+    html[data-theme="light"] .topbar {
+      background: linear-gradient(180deg, rgba(233,232,227,.86), transparent);
+    }
+
+    .nav {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: .7rem;
+      width: max-content;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      width: 24px;
+      height: 24px;
+    }
+
+    .brand-name {
+      font: 500 .72rem var(--mono);
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(1rem,2.5vw,2rem);
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font: 500 .71rem var(--mono);
+      letter-spacing: .04em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color .2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--ink);
+    }
+
+    .nav-tools {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: .55rem;
+    }
+
+    .icon-btn {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--ink);
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    .icon-btn:hover {
+      border-color: var(--ink);
+    }
+
+    .menu-toggle {
+      display: grid;
+    }
+
+    /* Hero */
+
+    .hero {
+      min-height: 100svh;
+      display: flex;
+      align-items: flex-end;
+      position: relative;
+      overflow: hidden;
+      padding: 8.5rem 0 3rem;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: min(58vw, 800px);
+      aspect-ratio: 1;
+      border: 1px solid var(--line-soft);
+      border-radius: 50%;
+      right: -20%;
+      top: 13%;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: min(38vw, 520px);
+      aspect-ratio: 1;
+      border: 1px solid var(--line-soft);
+      border-radius: 50%;
+      right: -2%;
+      top: 28%;
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-kicker {
+      margin-bottom: 2rem;
+    }
+
+    .hero-title {
+      max-width: 12ch;
+      margin: 0;
+      font-size: clamp(4.3rem, 13vw, 12.5rem);
+      line-height: .82;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .hero-title span {
+      display: block;
+    }
+
+    .hero-title .accent {
+      color: var(--accent);
+    }
+
+    html[data-theme="light"] .hero-title .accent {
+      text-decoration: underline;
+      text-decoration-thickness: 3px;
+      text-underline-offset: .1em;
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.4rem;
+      align-items: end;
+      padding-top: 1.8rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .hero-copy {
+      max-width: 46ch;
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .7rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .55rem;
+      min-height: 46px;
+      padding: .8rem 1.15rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      text-decoration: none;
+      font: 500 .72rem var(--mono);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      transition:
+        transform .25s var(--ease),
+        background .25s ease,
+        color .25s ease,
+        border-color .25s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      border-color: var(--ink);
+    }
+
+    .button.primary {
+      background: var(--ink);
+      color: var(--bg);
+      border-color: var(--ink);
+    }
+
+    .button.primary:hover {
+      background: var(--accent);
+      color: var(--accent-ink);
+      border-color: var(--accent);
+    }
+
+    .scroll-note {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: .7rem;
+      margin-top: 1.2rem;
+      color: var(--muted-2);
+      font: 500 .68rem var(--mono);
+      text-transform: uppercase;
+    }
+
+    .scroll-line {
+      width: 48px;
+      height: 1px;
+      background: var(--line);
+    }
+
+    .local-time {
+      margin: .9rem 0 0;
+      color: var(--muted-2);
+      font: 500 .66rem var(--mono);
+      letter-spacing: .03em;
+      text-align: right;
+      text-transform: uppercase;
+    }
+
+    .local-time time {
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Ticker */
+
+    .ticker {
+      overflow: hidden;
+      border-block: 1px solid var(--line);
+    }
+
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      gap: 2rem;
+      padding: 1rem 0;
+      animation: ticker 28s linear infinite;
+    }
+
+    .ticker-item {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      color: var(--muted-2);
+      font: 500 .72rem var(--mono);
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .ticker-item b {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    @keyframes ticker {
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* General sections */
+
+    .section {
+      padding: clamp(5rem,10vw,10rem) 0;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      max-width: 13ch;
+      margin: .7rem 0 0;
+      font-size: clamp(2.7rem,6vw,5.8rem);
+      line-height: .9;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .section-intro {
+      max-width: 44ch;
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    /* About */
+
+    .statement {
+      border-top: 1px solid var(--line);
+    }
+
+    .statement-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .statement-big {
+      max-width: 18ch;
+      margin: 0;
+      font-size: clamp(2.3rem,6vw,6rem);
+      line-height: .95;
+      font-weight: 500;
+    }
+
+    .statement-big em {
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    .statement-side {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      gap: 1.5rem;
+    }
+
+    .statement-side p {
+      max-width: 42ch;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .micro-list {
+      display: grid;
+      grid-template-columns: repeat(2,minmax(0,1fr));
+      gap: 1px;
+      border: 1px solid var(--line);
+      background: var(--line);
+    }
+
+    .micro-item {
+      background: var(--bg);
+      padding: 1rem;
+    }
+
+    .micro-item strong {
+      display: block;
+      font: 600 1.25rem var(--display);
+    }
+
+    .micro-item span {
+      display: block;
+      margin-top: .25rem;
+      color: var(--muted-2);
+      font: 500 .64rem var(--mono);
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    /* Facts */
+
+    .facts {
+      background: var(--surface);
+      border-block: 1px solid var(--line);
+    }
+
+    .facts-grid {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 1px;
+      border: 1px solid var(--line);
+      background: var(--line);
+    }
+
+    .fact {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 190px;
+      padding: 1.35rem;
+      background: var(--surface);
+    }
+
+    .fact-number {
+      font: 600 clamp(2.6rem,7vw,5.8rem)/.9 var(--display);
+      letter-spacing: -.06em;
+    }
+
+    .fact-number span {
+      color: var(--accent);
+    }
+
+    .fact-label {
+      max-width: 18ch;
+      color: var(--muted);
+      font: 500 .68rem/1.35 var(--mono);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    /* Services */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      border-top: 1px solid var(--line);
+    }
+
+    .service {
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      gap: 1.2rem;
+      padding: 1.7rem 0;
+      border-bottom: 1px solid var(--line);
+      text-decoration: none;
+    }
+
+    .service:hover .service-arrow {
+      transform: translate(3px,-3px);
+    }
+
+    .service-num {
+      color: var(--muted-2);
+      font: 500 .7rem var(--mono);
+    }
+
+    .service-body h3 {
+      margin: 0 0 .45rem;
+      font: 600 clamp(1.4rem,3.2vw,2.5rem)/.95 var(--display);
+      text-transform: uppercase;
+    }
+
+    .service-body p {
+      max-width: 55ch;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .service-arrow {
+      justify-self: end;
+      align-self: center;
+      color: var(--muted);
+      transition: transform .25s var(--ease);
+    }
+
+    /* Work */
+
+    .work {
+      background: var(--surface);
+      border-block: 1px solid var(--line);
+    }
+
+    .work-list {
+      border-top: 1px solid var(--line);
+    }
+
+    .project {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.3rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--line);
+      text-decoration: none;
+      transition:
+        transform .4s var(--ease),
+        box-shadow .4s var(--ease);
+    }
+
+    .project:hover,
+    .project:focus-within {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+    }
+
+    .project--featured .project-title {
+      color: var(--accent);
+    }
+
+    .project-visual {
+      min-height: 220px;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      position: relative;
+      background: #222;
+      border: 1px solid var(--line);
+    }
+
+    .project-visual::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(
+        120deg,
+        transparent 10%,
+        rgba(255,255,255,.12) 48%,
+        transparent 60%
+      );
+      transform: translateX(-110%);
+      transition: transform .8s var(--ease);
+    }
+
+    .project:hover .project-visual::before {
+      transform: translateX(110%);
+    }
+
+    /* Project visual directions */
+
+    .project--paivepo .project-visual {
+      background:
+        radial-gradient(circle at 20% 20%, #d0b18b 0 8%, transparent 9%),
+        radial-gradient(circle at 72% 75%, #8a6b4c 0 16%, transparent 17%),
+        #232323;
+    }
+
+    .project--bln .project-visual {
+      background:
+        linear-gradient(
+          120deg,
+          #f7f6f1 0 33%,
+          #161616 33% 66%,
+          #777 66%
+        );
+    }
+
+    .project--jm .project-visual {
+      background:
+        linear-gradient(
+          160deg,
+          #1c1c1c 0 52%,
+          #565656 52% 53%,
+          #1c1c1c 53%
+        );
+    }
+
+    .project--shalom .project-visual {
+      background:
+        radial-gradient(circle at 25% 25%, #315cd7 0 10%, transparent 11%),
+        radial-gradient(circle at 75% 70%, #d6b455 0 13%, transparent 14%),
+        linear-gradient(135deg, #101a31, #1b2b53 48%, #111827);
+    }
+
+    .project-ui {
+      position: absolute;
+      inset: auto 7% 8% 7%;
+      padding: 1rem;
+      border: 1px solid rgba(255,255,255,.2);
+      background: rgba(0,0,0,.28);
+      backdrop-filter: blur(7px);
+      transition: transform .5s var(--ease);
+    }
+
+    .project:hover .project-ui {
+      transform: translateY(-4px);
+    }
+
+    .project-ui-bar {
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-ui-bar i {
+      width: 5px;
+      height: 5px;
+      flex: none;
+      border-radius: 50%;
+      background: rgba(255,255,255,.65);
+    }
+
+    .project-ui-url {
+      overflow: hidden;
+      margin-left: .5rem;
+      color: rgba(255,255,255,.55);
+      font: 400 .62rem var(--mono);
+      letter-spacing: .01em;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .project-ui-line {
+      width: 70%;
+      height: 7px;
+      margin: .45rem 0;
+      background: rgba(255,255,255,.75);
+    }
+
+    .project-ui-line.short {
+      width: 42%;
+      opacity: .45;
+    }
+
+    .project-copy {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .project-title {
+      margin: 0;
+      font: 600 clamp(1.6rem,4vw,3.3rem)/.9 var(--display);
+      text-transform: uppercase;
+    }
+
+    .project-status {
+      display: inline-flex;
+      width: max-content;
+      margin-top: .7rem;
+      padding: .3rem .55rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      font: 500 .6rem var(--mono);
+      text-transform: uppercase;
+    }
+
+    .project-desc {
+      grid-column: 1 / -1;
+      max-width: 55ch;
+      margin: .15rem 0 0;
+      color: var(--muted);
+    }
+
+    .project-meta {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .45rem;
+    }
+
+    .tag {
+      padding: .28rem .55rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted-2);
+      font: 500 .61rem var(--mono);
+    }
+
+    .project-arrow {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: var(--muted);
+    }
+
+    /* Workshop */
+
+    .workshop {
+      padding-top: 3rem;
+    }
+
+    .workshop-label {
+      margin: 0 0 1rem;
+      color: var(--muted-2);
+      font: 500 .68rem var(--mono);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .lab-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+    }
+
+    .lab-card {
+      min-height: 150px;
+      padding: 1.3rem;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .lab-card h3 {
+      margin: 0 0 .5rem;
+      font: 600 1.15rem var(--display);
+      text-transform: uppercase;
+    }
+
+    .lab-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    /* Process */
+
+    .process {
+      background: var(--surface);
+      border-block: 1px solid var(--line);
+    }
+
+    .process-list {
+      border-top: 1px solid var(--line);
+    }
+
+    .process-row {
+      display: grid;
+      grid-template-columns: 55px 1fr;
+      gap: 1rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .process-num {
+      color: var(--muted-2);
+      font: 500 .7rem var(--mono);
+    }
+
+    .process-content h3 {
+      margin: 0 0 .45rem;
+      font: 600 clamp(1.35rem,3vw,2.2rem) var(--display);
+      text-transform: uppercase;
+    }
+
+    .process-content p {
+      max-width: 60ch;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    /* Testimonials */
+
+    .quotes {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quote-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1px;
+      border: 1px solid var(--line);
+      background: var(--line);
+    }
+
+    blockquote {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 270px;
+      margin: 0;
+      padding: 1.6rem;
+      background: var(--bg);
+    }
+
+    blockquote p {
+      max-width: 22ch;
+      margin: 0;
+      font: 500 clamp(1.5rem,3.2vw,2.3rem)/1.05 var(--display);
+      letter-spacing: -.035em;
+    }
+
+    blockquote cite {
+      color: var(--muted);
+      font: 500 .68rem/1.4 var(--mono);
+      font-style: normal;
+      text-transform: uppercase;
+    }
+
+    blockquote cite strong {
+      display: block;
+      margin-bottom: .15rem;
+      color: var(--ink);
+    }
+
+    /* Contact */
+
+    .contact {
+      background: var(--accent);
+      color: var(--accent-ink);
+    }
+
+    .contact .eyebrow {
+      color: inherit;
+      opacity: .65;
+    }
+
+    .contact .eyebrow::before {
+      background: currentColor;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .contact-title {
+      max-width: 10ch;
+      margin: .7rem 0 1.2rem;
+      font-size: clamp(3rem,9vw,8rem);
+      line-height: .83;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .contact-copy {
+      max-width: 43ch;
+      margin: 0;
+      opacity: .72;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 1.5rem;
+      margin-top: 1.8rem;
+    }
+
+    .contact-links a {
+      padding-bottom: .15rem;
+      border-bottom: 1px solid currentColor;
+      font: 500 .72rem var(--mono);
+      text-decoration: none;
+    }
+
+    .contact-links a:hover {
+      opacity: .65;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: .45rem;
+    }
+
+    .field label {
+      opacity: .65;
+      font: 500 .65rem var(--mono);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .field input,
+    .field textarea,
+    .field select {
+      width: 100%;
+      padding: .7rem 0;
+      border: 0;
+      border-bottom: 1px solid currentColor;
+      border-radius: 0;
+      outline: none;
+      background: transparent;
+      color: inherit;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: inherit;
+      opacity: .35;
+    }
+
+    .field select {
+      cursor: pointer;
+    }
+
+    .field textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus {
+      border-bottom-width: 2px;
+    }
+
+    .hp-field {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      border: 0 !important;
+      clip: rect(0,0,0,0) !important;
+      white-space: nowrap !important;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      border: 0;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+    }
+
+    .form-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+      margin-top: .4rem;
+    }
+
+    .form .button {
+      background: var(--accent-ink);
+      color: var(--accent);
+      border-color: var(--accent-ink);
+      cursor: pointer;
+    }
+
+    .form .button:hover {
+      background: transparent;
+      color: var(--accent-ink);
+    }
+
+    .form-status {
+      min-height: 1.3em;
+      margin: 0;
+      font: 500 .68rem var(--mono);
+    }
+
+    /* Footer */
+
+    .footer {
+      padding: 1.5rem 0 2rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: .35rem 1rem;
+      align-items: end;
+    }
+
+    .footer-studio {
+      margin: 0;
+      color: var(--muted-2);
+      font: 500 .62rem var(--mono);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .footer-big {
+      margin: 0;
+      font: 600 clamp(3.5rem,12vw,9rem)/.8 var(--display);
+      letter-spacing: -.07em;
+      text-transform: uppercase;
+    }
+
+    .footer-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+      color: var(--muted);
+      font: 500 .65rem var(--mono);
+      text-transform: uppercase;
+    }
+
+    .footer-meta a {
+      text-decoration: none;
+    }
+
+    .footer-meta a:hover {
+      color: var(--ink);
+    }
+
+    /* Mobile menu */
+
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      z-index: 150;
+      display: flex;
+      flex-direction: column;
+      padding: 7rem var(--gutter) 2rem;
+      background: var(--bg);
+      transform: translateY(-101%);
+      transition: transform .45s var(--ease);
+    }
+
+    .mobile-menu.open {
+      transform: none;
+    }
+
+    .mobile-menu nav {
+      display: flex;
+      flex-direction: column;
+      gap: .65rem;
+    }
+
+    .mobile-menu a {
+      font: 600 clamp(2.3rem,10vw,5rem)/.85 var(--display);
+      letter-spacing: -.045em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .mobile-menu .menu-note {
+      margin-top: auto;
+      color: var(--muted);
+      font: 500 .68rem var(--mono);
+    }
+
+    /* Reveal */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition:
+        opacity .7s var(--ease),
+        transform .7s var(--ease);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .stagger > * {
+      transition-delay: calc(var(--i,0) * 70ms);
+    }
+
+    .work-list.stagger > .project {
+      transition-delay: 0s;
+    }
+
+    /* Tablet */
+
+    @media (min-width: 700px) {
+      .hero-meta {
+        grid-template-columns: 1.2fr auto;
+      }
+
+      .section-head {
+        grid-template-columns: 1.2fr .8fr;
+        align-items: end;
+      }
+
+      .statement-grid {
+        grid-template-columns: 1.15fr .85fr;
+        gap: 4rem;
+      }
+
+      .facts-grid {
+        grid-template-columns: repeat(4,1fr);
+      }
+
+      .lab-grid {
+        grid-template-columns: repeat(3,1fr);
+      }
+
+      .quote-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .field-row {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr auto;
+      }
+
+      .footer-studio {
+        grid-column: 1;
+      }
+    }
+
+    /* Desktop */
+
+    @media (min-width: 860px) {
+      .nav-links {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+
+      .hero-grid {
+        gap: 4rem;
+      }
+
+      .project {
+        grid-template-columns: minmax(260px,.92fr) 1.08fr;
+        align-items: center;
+        gap: clamp(2rem,5vw,6rem);
+        padding: 2.2rem 0;
+      }
+
+      .project-visual {
+        min-height: 330px;
+      }
+
+      .project-copy {
+        grid-template-columns: 1fr auto;
+      }
+
+      .project-desc,
+      .project-meta {
+        grid-column: 1;
+      }
+
+      .project-arrow {
+        grid-column: 2;
+        grid-row: 1 / 5;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(3rem,7vw,8rem);
+        align-items: end;
+      }
+
+      .process-row {
+        grid-template-columns: 100px 1fr;
+      }
+    }
+
+    @media (min-width: 1100px) {
+      .hero {
+        padding-bottom: 4rem;
+      }
+
+      .hero-title {
+        max-width: none;
+      }
+
+      .statement-big {
+        max-width: 15ch;
+      }
+
+      .facts .fact {
+        min-height: 230px;
+        padding: 1.5rem;
+      }
+    }
+
+    /* Reduced motion */
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Header -->
+  <header class="topbar">
+    <div class="shell nav">
+
+      <a
+        class="brand"
+        href="#home"
+        aria-label="Landon Carter Windvogel Digital and Technology Studio — home"
+      >
+        <svg
+          class="brand-mark"
+          viewBox="0 0 100 100"
+          aria-hidden="true"
+        >
+          <path
+            d="M50 18 66 82H34Z"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="6"
+          />
+          <circle
+            cx="50"
+            cy="29"
+            r="4"
+            fill="currentColor"
+          />
+        </svg>
+
+        <span class="brand-name">
+          Landon Carter Windvogel
+        </span>
+      </a>
+
+      <nav
+        class="nav-links"
+        aria-label="Primary navigation"
+      >
+        <a href="#work">Work</a>
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-tools">
+        <button
+          class="icon-btn"
+          id="themeToggle"
+          type="button"
+          aria-label="Switch to light theme"
+          title="Toggle theme"
+        >
+          <svg
+            id="themeIcon"
+            width="17"
+            height="17"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+            <circle
+              cx="12"
+              cy="12"
+              r="4"
+              stroke="currentColor"
+              stroke-width="1.5"
+            />
+            <path
+              d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+
+        <button
+          class="icon-btn menu-toggle"
+          id="menuToggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mobileMenu"
+          aria-label="Open menu"
+        >
+          <svg
+            width="17"
+            height="17"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M3 7h18M3 12h18M3 17h18"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Mobile navigation -->
+  <div
+    class="mobile-menu"
+    id="mobileMenu"
+    aria-hidden="true"
+  >
+    <nav aria-label="Mobile navigation">
+      <a href="#home">Home</a>
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#about">About</a>
+      <a href="#contact">Let's talk</a>
+    </nav>
+
+    <p class="menu-note">
+      Plettenberg Bay · South Africa · Available for selected projects
+    </p>
+  </div>
+
+  <main id="main">
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="shell hero-grid">
+
+        <div>
+          <p class="eyebrow hero-kicker">
+            Digital &amp; technology studio · Garden Route · South Africa · 2026
+          </p>
+
+          <h1 class="display hero-title">
+            <span>Make</span>
+            <span><span class="accent">it</span> work.</span>
+          </h1>
+        </div>
+
+        <div class="hero-meta reveal">
+          <p class="hero-copy">
+            I design and build websites and digital products for businesses
+            that need the finished thing to be fast, clear and genuinely useful
+            — with practical PC and laptop support when technology needs fixing,
+            upgrading or setting up.
+          </p>
+
+          <div>
+            <div class="hero-actions">
+              <a class="button primary" href="#work">
+                See the work
+                <span aria-hidden="true">↗</span>
+              </a>
+
+              <a class="button" href="#contact">
+                Start a project
+                <span aria-hidden="true">↘</span>
+              </a>
+            </div>
+
+            <div class="scroll-note">
+              <span class="scroll-line"></span>
+              Scroll to explore
+            </div>
+
+            <p class="local-time">
+              Plettenberg Bay, South Africa —
+              <time id="localTime">--:--</time>
+              local time
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Technology ticker -->
+    <div
+      class="ticker"
+      aria-hidden="true"
+    >
+      <div class="ticker-track">
+
+        <span class="ticker-item">
+          HTML5 <b>×</b>
+          CSS3 <b>×</b>
+          JavaScript <b>×</b>
+          Responsive Design <b>×</b>
+          Mobile-First <b>×</b>
+          Semantic HTML <b>×</b>
+          Accessibility <b>×</b>
+          SEO <b>×</b>
+          Git <b>×</b>
+          GitHub <b>×</b>
+          Netlify <b>×</b>
+          Performance Optimisation <b>×</b>
+        </span>
+
+        <span class="ticker-item">
+          HTML5 <b>×</b>
+          CSS3 <b>×</b>
+          JavaScript <b>×</b>
+          Responsive Design <b>×</b>
+          Mobile-First <b>×</b>
+          Semantic HTML <b>×</b>
+          Accessibility <b>×</b>
+          SEO <b>×</b>
+          Git <b>×</b>
+          GitHub <b>×</b>
+          Netlify <b>×</b>
+          Performance Optimisation <b>×</b>
+        </span>
+
+      </div>
+    </div>
+
+    <!-- About statement -->
+    <section
+      class="section statement"
+      id="about"
+      aria-labelledby="about-title"
+    >
+      <div class="shell statement-grid">
+
+        <div class="reveal">
+          <p class="eyebrow">
+            What the company is
+          </p>
+
+          <h2
+            class="sr-only"
+            id="about-title"
+          >
+            About Landon Carter Windvogel
+          </h2>
+
+          <p class="statement-big display">
+            Design the right thing.
+            Build it properly.
+            Keep the technology
+            <em>working.</em>
+          </p>
+        </div>
+
+        <div class="statement-side reveal">
+
+          <p>
+            Landon Carter Windvogel is a digital &amp; technology studio.
+            Web design and development are the flagship services, supported by
+            digital product work and practical PC and laptop support.
+          </p>
+
+          <div
+            class="micro-list"
+            aria-label="Core strengths"
+          >
+            <div class="micro-item">
+              <strong>01</strong>
+              <span>Web design + build</span>
+            </div>
+
+            <div class="micro-item">
+              <strong>02</strong>
+              <span>Digital products</span>
+            </div>
+
+            <div class="micro-item">
+              <strong>03</strong>
+              <span>SEO + performance</span>
+            </div>
+
+            <div class="micro-item">
+              <strong>04</strong>
+              <span>PC + laptop support</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Facts -->
+    <section
+      class="section facts"
+      aria-labelledby="facts-title"
+    >
+      <div class="shell">
+
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">The numbers</p>
+
+            <h2
+              class="display section-title"
+              id="facts-title"
+            >
+              Proof over promises.
+            </h2>
+          </div>
+
+          <p class="section-intro">
+            One company with a clear priority:
+            excellent digital work first, backed by practical technology
+            support when clients need it.
+          </p>
+        </div>
+
+        <div class="facts-grid reveal stagger">
+
+          <div
+            class="fact"
+            style="--i:0"
+          >
+            <span class="fact-number">
+              4<span>+</span>
+            </span>
+
+            <span class="fact-label">
+              Production client projects
+            </span>
+          </div>
+
+          <div
+            class="fact"
+            style="--i:1"
+          >
+            <span class="fact-number">1</span>
+
+            <span class="fact-label">
+              Person from brief to deployment
+            </span>
+          </div>
+
+          <div
+            class="fact"
+            style="--i:2"
+          >
+            <span class="fact-number">
+              100<span>%</span>
+            </span>
+
+            <span class="fact-label">
+              Lean, direct project ownership
+            </span>
+          </div>
+
+          <div
+            class="fact"
+            style="--i:3"
+          >
+            <span class="fact-number">2</span>
+
+            <span class="fact-label">
+              Core technology service areas
+            </span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section
+      class="section"
+      id="services"
+      aria-labelledby="services-title"
+    >
+      <div class="shell">
+
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">
+              What the studio does
+            </p>
+
+            <h2
+              class="display section-title"
+              id="services-title"
+            >
+              Digital first. Technology covered.
+            </h2>
+          </div>
+
+          <p class="section-intro">
+            Web and digital work lead the business.
+            Technology support sits alongside it for clients who also need
+            their computers working properly.
+          </p>
+        </div>
+
+        <div class="services-grid reveal stagger">
+
+          <a
+            class="service"
+            href="#contact"
+            style="--i:0"
+          >
+            <span class="service-num">01</span>
+
+            <span class="service-body">
+              <h3>Web Design &amp; Development</h3>
+
+              <p>
+                High-performance business, portfolio and e-commerce websites
+                with strong structure, responsive UX, local SEO, accessibility
+                and a clean architecture built for the real world.
+              </p>
+            </span>
+
+            <span
+              class="service-arrow"
+              aria-hidden="true"
+            >
+              ↗
+            </span>
+          </a>
+
+          <a
+            class="service"
+            href="#contact"
+            style="--i:1"
+          >
+            <span class="service-num">02</span>
+
+            <span class="service-body">
+              <h3>Digital Products &amp; Systems</h3>
+
+              <p>
+                PWAs, internal tools, dashboards, calculators and focused
+                business systems that remove repetitive work and make everyday
+                operations easier.
+              </p>
+            </span>
+
+            <span
+              class="service-arrow"
+              aria-hidden="true"
+            >
+              ↗
+            </span>
+          </a>
+
+          <a
+            class="service"
+            href="#contact"
+            style="--i:2"
+          >
+            <span class="service-num">03</span>
+
+            <span class="service-body">
+              <h3>SEO, Security &amp; Performance</h3>
+
+              <p>
+                Technical SEO, structured data, accessible interactions,
+                secure deployment, performance optimisation and careful use
+                of JavaScript so the site stays fast and maintainable.
+              </p>
+            </span>
+
+            <span
+              class="service-arrow"
+              aria-hidden="true"
+            >
+              ↗
+            </span>
+          </a>
+
+          <a
+            class="service"
+            href="#contact"
+            style="--i:3"
+          >
+            <span class="service-num">04</span>
+
+            <span class="service-body">
+              <h3>PC &amp; Laptop Support</h3>
+
+              <p>
+                Troubleshooting, Windows setup, software and driver issues,
+                performance fixes, backups, SSD and RAM upgrades, and general
+                computer maintenance.
+              </p>
+            </span>
+
+            <span
+              class="service-arrow"
+              aria-hidden="true"
+            >
+              ↗
+            </span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Selected work -->
+    <section
+      class="section work"
+      id="work"
+      aria-labelledby="work-title"
+    >
+      <div class="shell">
+
+        <div class="section-head reveal">
+
+          <div>
+            <p class="eyebrow">
+              Selected work · digital portfolio
+            </p>
+
+            <h2
+              class="display section-title"
+              id="work-title"
+            >
+              Work worth showing.
+            </h2>
+          </div>
+
+          <p class="section-intro">
+            Real projects built around real constraints.
+            The portfolio starts with client work, followed by selected
+            digital products and experiments from the studio.
+          </p>
+
+        </div>
+
+        <div class="work-list reveal stagger">
+
+          <!-- 01 · Paivepo -->
+          <a
+            class="project project--paivepo project--featured"
+            href="projects/paivepo.html"
+            style="--i:0"
+          >
+            <div
+              class="project-visual"
+              aria-hidden="true"
+            >
+              <div class="project-ui">
+
+                <div class="project-ui-bar">
+                  <i></i>
+                  <i></i>
+                  <i></i>
+
+                  <span class="project-ui-url">
+                    projects/paivepo.html
+                  </span>
+                </div>
+
+                <div class="project-ui-line"></div>
+                <div class="project-ui-line short"></div>
+
+              </div>
+            </div>
+
+            <div class="project-copy">
+
+              <div>
+                <h3 class="project-title display">
+                  Paivepo Art &amp; Decor
+                </h3>
+
+                <span class="project-status">
+                  01 · Featured · Pre-launch
+                </span>
+              </div>
+
+              <span
+                class="project-arrow"
+                aria-hidden="true"
+              >
+                ↗
+              </span>
+
+              <p class="project-desc">
+                A visual-first shopping experience for an African art and
+                decor house, designed around the work of multiple artists and
+                a premium, image-led product journey. Currently in its
+                pre-launch phase while final artist content is confirmed
+                with the client.
+              </p>
+
+              <div class="project-meta">
+                <span class="tag">Vanilla JS</span>
+                <span class="tag">E-commerce</span>
+                <span class="tag">Netlify Forms</span>
+                <span class="tag">WebP pipeline</span>
+              </div>
+
+            </div>
+          </a>
+
+          <!-- 02 · BL&N -->
+          <a
+            class="project project--bln"
+            href="projects/bln-electrical.html"
+            style="--i:1"
+          >
+            <div
+              class="project-visual"
+              aria-hidden="true"
+            >
+              <div class="project-ui">
+
+                <div class="project-ui-bar">
+                  <i></i>
+                  <i></i>
+                  <i></i>
+
+                  <span class="project-ui-url">
+                    projects/bln-electrical.html
+                  </span>
+                </div>
+
+                <div class="project-ui-line"></div>
+                <div class="project-ui-line short"></div>
+
+              </div>
+            </div>
+
+            <div class="project-copy">
+
+              <div>
+                <h3 class="project-title display">
+                  BL&amp;N Electrical &amp; Plumbing
+                </h3>
+
+                <span class="project-status">
+                  02 · Live · Local business
+                </span>
+              </div>
+
+              <span
+                class="project-arrow"
+                aria-hidden="true"
+              >
+                ↗
+              </span>
+
+              <p class="project-desc">
+                A complete local-business website focused on service discovery,
+                emergency call-outs, project credibility and local search
+                visibility for Plettenberg Bay homeowners and property
+                managers.
+              </p>
+
+              <div class="project-meta">
+                <span class="tag">Vanilla JS</span>
+                <span class="tag">Local SEO</span>
+                <span class="tag">Structured data</span>
+                <span class="tag">Netlify</span>
+              </div>
+
+            </div>
+          </a>
+
+          <!-- 03 · JM Cab Services -->
+          <a
+            class="project project--jm"
+            href="projects/jm-cab-services.html"
+            style="--i:2"
+          >
+            <div
+              class="project-visual"
+              aria-hidden="true"
+            >
+              <div class="project-ui">
+
+                <div class="project-ui-bar">
+                  <i></i>
+                  <i></i>
+                  <i></i>
+
+                  <span class="project-ui-url">
+                    projects/jm-cab-services.html
+                  </span>
+                </div>
+
+                <div class="project-ui-line"></div>
+                <div class="project-ui-line short"></div>
+
+              </div>
+            </div>
+
+            <div class="project-copy">
+
+              <div>
+                <h3 class="project-title display">
+                  JM Cab Services
+                </h3>
+
+                <span class="project-status">
+                  03 · Live · Conversion
+                </span>
+              </div>
+
+              <span
+                class="project-arrow"
+                aria-hidden="true"
+              >
+                ↗
+              </span>
+
+              <p class="project-desc">
+                A focused transport website built around one clear objective:
+                turn a visitor into a booking. The experience keeps the
+                interface direct, mobile-first and connected to WhatsApp.
+              </p>
+
+              <div class="project-meta">
+                <span class="tag">Static site</span>
+                <span class="tag">Local SEO</span>
+                <span class="tag">WhatsApp</span>
+                <span class="tag">Responsive UX</span>
+              </div>
+
+            </div>
+          </a>
+
+          <!-- 04 · Shalom Designs -->
+          <a
+            class="project project--shalom"
+            href="projects/shalom-designs.html"
+            style="--i:3"
+          >
+            <div
+              class="project-visual"
+              aria-hidden="true"
+            >
+              <div class="project-ui">
+
+                <div class="project-ui-bar">
+                  <i></i>
+                  <i></i>
+                  <i></i>
+
+                  <span class="project-ui-url">
+                    projects/shalom-designs.html
+                  </span>
+                </div>
+
+                <div class="project-ui-line"></div>
+                <div class="project-ui-line short"></div>
+
+              </div>
+            </div>
+
+            <div class="project-copy">
+
+              <div>
+                <h3 class="project-title display">
+                  Shalom Designs
+                </h3>
+
+                <span class="project-status">
+                  04 · In development · E-commerce
+                </span>
+              </div>
+
+              <span
+                class="project-arrow"
+                aria-hidden="true"
+              >
+                ↗
+              </span>
+
+              <p class="project-desc">
+                An active e-commerce rebuild focused on clearer product
+                discovery, stronger school-uniform navigation, catalogue
+                accuracy and a refined brand-led shopping experience.
+              </p>
+
+              <div class="project-meta">
+                <span class="tag">Vanilla JS</span>
+                <span class="tag">E-commerce</span>
+                <span class="tag">SEO</span>
+                <span class="tag">Accessibility</span>
+              </div>
+
+            </div>
+          </a>
+
+        </div>
+
+        <!-- Workshop -->
+        <div class="workshop reveal">
+
+          <p class="workshop-label">
+            In the workshop · internal products &amp; future experiments
+          </p>
+
+          <div class="lab-grid">
+
+            <article class="lab-card">
+              <h3>PostNet Production</h3>
+
+              <p>
+                A production PWA built for a multi-branch print workflow,
+                covering job intake, production status, branch coordination
+                and operational visibility.
+              </p>
+            </article>
+
+            <article class="lab-card">
+              <h3>Android products</h3>
+
+              <p>
+                Kotlin experiments exploring focused mobile utility products,
+                adaptive workflows and polished user experiences.
+              </p>
+            </article>
+
+            <article class="lab-card">
+              <h3>Windows utilities</h3>
+
+              <p>
+                Desktop tooling experiments that turn technical workflows
+                into clearer and safer operator interfaces.
+              </p>
+            </article>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section
+      class="section process"
+      id="process"
+      aria-labelledby="process-title"
+    >
+      <div class="shell">
+
+        <div class="section-head reveal">
+
+          <div>
+            <p class="eyebrow">
+              Approach
+            </p>
+
+            <h2
+              class="display section-title"
+              id="process-title"
+            >
+              Small team energy. One person.
+            </h2>
+          </div>
+
+          <p class="section-intro">
+            No unnecessary handoffs. Design, development, technical decisions
+            and deployment stay close together, keeping projects moving and
+            accountability clear.
+          </p>
+
+        </div>
+
+        <div class="process-list reveal">
+
+          <div class="process-row">
+            <span class="process-num">01</span>
+
+            <div class="process-content">
+              <h3>Find the real problem</h3>
+
+              <p>
+                Start with the business objective, the audience and what
+                currently gets in the way. A website is only useful when it
+                fixes something measurable.
+              </p>
+            </div>
+          </div>
+
+          <div class="process-row">
+            <span class="process-num">02</span>
+
+            <div class="process-content">
+              <h3>Shape the experience</h3>
+
+              <p>
+                Information architecture, visual direction, content hierarchy
+                and interaction are resolved before the code gets complicated.
+              </p>
+            </div>
+          </div>
+
+          <div class="process-row">
+            <span class="process-num">03</span>
+
+            <div class="process-content">
+              <h3>Build lean</h3>
+
+              <p>
+                Semantic HTML, modern CSS and vanilla JavaScript by default.
+                Add the smallest useful backend or service layer when the
+                product genuinely needs one.
+              </p>
+            </div>
+          </div>
+
+          <div class="process-row">
+            <span class="process-num">04</span>
+
+            <div class="process-content">
+              <h3>Ship, support and improve</h3>
+
+              <p>
+                Production deployment, forms, SEO, accessibility and
+                performance are part of the build. After launch, I can keep
+                the site healthy — or troubleshoot the client’s hardware when
+                technology gets in the way.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section
+      class="section quotes"
+      aria-labelledby="quotes-title"
+    >
+      <div class="shell">
+
+        <div class="section-head reveal">
+
+          <div>
+            <p class="eyebrow">
+              Word of mouth
+            </p>
+
+            <h2
+              class="display section-title"
+              id="quotes-title"
+            >
+              Good work should make people comfortable recommending you.
+            </h2>
+          </div>
+
+        </div>
+
+        <div class="quote-grid reveal">
+
+          <blockquote>
+            <p>
+              “He didn't just build us a website — he understood the story we
+              were trying to tell about our artists.”
+            </p>
+
+            <cite>
+              <strong>Tinashe Kachama</strong>
+              Paivepo Art &amp; Decor
+            </cite>
+          </blockquote>
+
+          <blockquote>
+            <p>
+              “Calls come in from the site now, not just word of mouth.
+              It works exactly the way he said it would.”
+            </p>
+
+            <cite>
+              <strong>Blessing Sibanda</strong>
+              BL&amp;N Electrical &amp; Plumbing
+            </cite>
+          </blockquote>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section
+      class="section contact"
+      id="contact"
+      aria-labelledby="contact-title"
+    >
+      <div class="shell contact-grid">
+
+        <div class="reveal">
+
+          <p class="eyebrow">
+            Let's talk
+          </p>
+
+          <h2
+            class="display contact-title"
+            id="contact-title"
+          >
+            Have a build in mind?
+          </h2>
+
+          <p class="contact-copy">
+            Tell me what you are trying to launch, improve or fix.
+            I am based in Plettenberg Bay and work with clients along the
+            Garden Route and remotely across South Africa.
+          </p>
+
+          <div class="contact-links">
+            <a href="mailto:hello@landoncarterwindvogel.dev">
+              hello@landoncarterwindvogel.dev
+            </a>
+
+            <a
+              href="https://github.com/LandonCarterWindvogel"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub ↗
+              <span class="sr-only">
+                (opens in new tab)
+              </span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Netlify Form -->
+        <form
+          class="form reveal"
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="company"
+          id="contactForm"
+        >
+
+          <input
+            type="hidden"
+            name="form-name"
+            value="contact"
+          >
+
+          <p class="hp-field">
+            <label for="company">
+              Company
+
+              <input
+                id="company"
+                name="company"
+                tabindex="-1"
+                autocomplete="off"
+              >
+            </label>
+          </p>
+
+          <div class="field-row">
+
+            <div class="field">
+              <label for="name">
+                Name
+              </label>
+
+              <input
+                id="name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                placeholder="Your name"
+                required
+              >
+            </div>
+
+            <div class="field">
+              <label for="email">
+                Email
+              </label>
+
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                placeholder="you@example.com"
+                required
+              >
+            </div>
+
+          </div>
+
+          <div class="field">
+
+            <label for="project-type">
+              Project
+            </label>
+
+            <select
+              id="project-type"
+              name="project-type"
+              required
+            >
+              <option
+                value=""
+                selected
+                disabled
+              >
+                Choose a project type
+              </option>
+
+              <option>
+                Website design &amp; build
+              </option>
+
+              <option>
+                Web app / PWA
+              </option>
+
+              <option>
+                SEO &amp; performance
+              </option>
+
+              <option>
+                Website maintenance / improvements
+              </option>
+
+              <option>
+                PC / laptop support
+              </option>
+
+              <option>
+                Digital product / internal tool
+              </option>
+
+              <option>
+                Android app
+              </option>
+
+              <option>
+                Something else
+              </option>
+            </select>
+
+          </div>
+
+          <div class="field">
+
+            <label for="message">
+              Brief
+            </label>
+
+            <textarea
+              id="message"
+              name="message"
+              placeholder="What are you trying to build?"
+              required
+            ></textarea>
+
+          </div>
+
+          <div class="form-bottom">
+
+            <button
+              class="button"
+              type="submit"
+            >
+              Send enquiry
+              <span aria-hidden="true">↗</span>
+            </button>
+
+            <p
+              class="form-status"
+              id="formStatus"
+              role="status"
+              aria-live="polite"
+            ></p>
+
+          </div>
+
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+
+    <div class="shell footer-grid">
+
+      <p class="footer-big display">
+        LCW.
+      </p>
+
+      <p class="footer-studio">
+        DIGITAL &amp; TECHNOLOGY STUDIO · WEB · SYSTEMS · SUPPORT
+      </p>
+
+      <div class="footer-meta">
+
+        <span>
+          Plettenberg Bay · South Africa ·
+          <span id="year"></span>
+        </span>
+
+        <span>
+          <a href="#home">
+            Back to top ↑
+          </a>
+        </span>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+  <script>
+    (() => {
+      'use strict';
+
+      const root = document.documentElement;
+
+      const year = document.getElementById('year');
+      const themeToggle = document.getElementById('themeToggle');
+      const themeIcon = document.getElementById('themeIcon');
+
+      const menuToggle = document.getElementById('menuToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+
+      const form = document.getElementById('contactForm');
+      const formStatus = document.getElementById('formStatus');
+
+      /* Current year */
+      if (year) {
+        year.textContent = String(new Date().getFullYear());
+      }
+
+      /* Theme */
+      const savedTheme = (() => {
+        try {
+          return localStorage.getItem('lcw-theme');
+        } catch {
+          return null;
+        }
+      })();
+
+      const systemLight = window
+        .matchMedia?.('(prefers-color-scheme: light)')
+        .matches;
+
+      root.dataset.theme =
+        savedTheme === 'light' ||
+        (!savedTheme && systemLight)
+          ? 'light'
+          : 'dark';
+
+      const updateThemeButton = () => {
+        const light =
+          root.dataset.theme === 'light';
+
+        themeToggle.setAttribute(
+          'aria-label',
+          light
+            ? 'Switch to dark theme'
+            : 'Switch to light theme'
+        );
+
+        themeIcon.innerHTML = light
+          ? `
+            <path
+              d="M20.5 15.7A8 8 0 0 1 8.3 3.5 8.2 8.2 0 1 0 20.5 15.7Z"
+              stroke="currentColor"
+              stroke-width="1.6"
+              fill="none"
+            />
+          `
+          : `
+            <circle
+              cx="12"
+              cy="12"
+              r="4"
+              stroke="currentColor"
+              stroke-width="1.5"
+            />
+            <path
+              d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+          `;
+      };
+
+      updateThemeButton();
+
+      themeToggle.addEventListener(
+        'click',
+        () => {
+          root.dataset.theme =
+            root.dataset.theme === 'light'
+              ? 'dark'
+              : 'light';
+
+          try {
+            localStorage.setItem(
+              'lcw-theme',
+              root.dataset.theme
+            );
+          } catch {
+            /* Ignore storage failures. */
+          }
+
+          updateThemeButton();
+        }
+      );
+
+      /* Mobile navigation */
+      const setMenu = (open) => {
+        mobileMenu.classList.toggle(
+          'open',
+          open
+        );
+
+        mobileMenu.setAttribute(
+          'aria-hidden',
+          String(!open)
+        );
+
+        menuToggle.setAttribute(
+          'aria-expanded',
+          String(open)
+        );
+
+        menuToggle.setAttribute(
+          'aria-label',
+          open
+            ? 'Close menu'
+            : 'Open menu'
+        );
+
+        document.body.classList.toggle(
+          'menu-open',
+          open
+        );
+
+        if (open) {
+          mobileMenu
+            .querySelector('a')
+            ?.focus();
+        } else if (
+          document.activeElement &&
+          mobileMenu.contains(
+            document.activeElement
+          )
+        ) {
+          menuToggle.focus();
+        }
+      };
+
+      menuToggle.addEventListener(
+        'click',
+        () => {
+          setMenu(
+            !mobileMenu.classList.contains('open')
+          );
+        }
+      );
+
+      mobileMenu
+        .querySelectorAll('a')
+        .forEach((link) => {
+          link.addEventListener(
+            'click',
+            () => setMenu(false)
+          );
+        });
+
+      document.addEventListener(
+        'keydown',
+        (event) => {
+          if (event.key === 'Escape') {
+            setMenu(false);
+          }
+        }
+      );
+
+      /* Local South African time */
+      const localTimeEl =
+        document.getElementById(
+          'localTime'
+        );
+
+      if (localTimeEl) {
+        const updateLocalTime = () => {
+          const now = new Date();
+
+          const formatted =
+            now.toLocaleTimeString(
+              'en-ZA',
+              {
+                hour: '2-digit',
+                minute: '2-digit',
+                timeZone:
+                  'Africa/Johannesburg'
+              }
+            );
+
+          localTimeEl.textContent =
+            formatted;
+
+          localTimeEl.setAttribute(
+            'datetime',
+            now.toISOString()
+          );
+        };
+
+        updateLocalTime();
+
+        setInterval(
+          updateLocalTime,
+          30000
+        );
+      }
+
+      /* Scroll reveal */
+      const reveals =
+        document.querySelectorAll(
+          '.reveal'
+        );
+
+      if (
+        'IntersectionObserver' in window &&
+        !window
+          .matchMedia(
+            '(prefers-reduced-motion: reduce)'
+          )
+          .matches
+      ) {
+        const observer =
+          new IntersectionObserver(
+            (entries) => {
+              entries.forEach(
+                (entry) => {
+                  if (
+                    entry.isIntersecting
+                  ) {
+                    entry.target.classList.add(
+                      'is-visible'
+                    );
+
+                    observer.unobserve(
+                      entry.target
+                    );
+                  }
+                }
+              );
+            },
+            {
+              threshold: 0.1,
+              rootMargin:
+                '0px 0px -50px'
+            }
+          );
+
+        reveals.forEach(
+          (element) => observer.observe(element)
+        );
+      } else {
+        reveals.forEach(
+          (element) =>
+            element.classList.add(
+              'is-visible'
+            )
+        );
+      }
+
+      /* Netlify form submission */
+      if (form) {
+        form.addEventListener(
+          'submit',
+          async (event) => {
+            event.preventDefault();
+
+            formStatus.textContent =
+              'Sending…';
+
+            formStatus.removeAttribute(
+              'data-state'
+            );
+
+            const email =
+              document.getElementById(
+                'email'
+              );
+
+            if (
+              !email.validity.valid
+            ) {
+              formStatus.textContent =
+                'Please enter a valid email address.';
+
+              email.focus();
+              return;
+            }
+
+            const body =
+              new URLSearchParams(
+                new FormData(form)
+              );
+
+            try {
+              const response =
+                await fetch(
+                  '/',
+                  {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type':
+                        'application/x-www-form-urlencoded'
+                    },
+                    body:
+                      body.toString()
+                  }
+                );
+
+              if (!response.ok) {
+                throw new Error(
+                  'Form submission failed'
+                );
+              }
+
+              form.reset();
+
+              formStatus.dataset.state =
+                'success';
+
+              formStatus.textContent =
+                'Sent. I’ll get back to you within a day or two.';
+            } catch {
+              formStatus.dataset.state =
+                'error';
+
+              formStatus.textContent =
+                'Something went wrong. Email hello@landoncarterwindvogel.dev directly.';
+            }
+          }
+        );
+      }
+
+    })();
+  </script>
+
+</body>
+</html>
