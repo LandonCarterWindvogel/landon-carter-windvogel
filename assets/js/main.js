@@ -132,6 +132,25 @@
     const submit = $('button[type="submit"]', form);
     if (!status || !submit) return;
 
+    const offerEmailFallback = (message) => {
+      const details = new FormData(form);
+      const subject = 'Project enquiry: ' + (details.get('project-type') || 'New enquiry');
+      const body = (details.get('message') || '') + '\n\n' +
+        (details.get('name') || '') + ' — ' + (details.get('email') || '');
+      const link = document.createElement('a');
+      link.href = 'mailto:hello@landoncarterwindvogel.dev?subject=' + encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(body);
+      link.textContent = 'email me directly';
+      status.replaceChildren(document.createTextNode(message), link,
+        document.createTextNode(' (your message is pre-filled).'));
+    };
+
+    // GitHub Pages is static hosting; never report a fake successful form submission.
+    if (window.location.hostname.endsWith('.github.io')) {
+      offerEmailFallback('This site is hosted on GitHub Pages, which cannot receive form submissions — ');
+      return;
+    }
+
     status.textContent = 'Sending…';
     submit.disabled = true;
     try {
@@ -144,16 +163,7 @@
       form.reset();
       status.textContent = 'Sent. I’ll get back to you within a day or two.';
     } catch {
-      const details = new FormData(form);
-      const subject = 'Project enquiry: ' + (details.get('project-type') || 'New enquiry');
-      const body = (details.get('message') || '') + '\n\n' +
-        (details.get('name') || '') + ' — ' + (details.get('email') || '');
-      const link = document.createElement('a');
-      link.href = 'mailto:hello@landoncarterwindvogel.dev?subject=' + encodeURIComponent(subject) +
-        '&body=' + encodeURIComponent(body);
-      link.textContent = 'email me directly';
-      status.replaceChildren(document.createTextNode('Couldn’t send from here — '), link,
-        document.createTextNode(' (your message is pre-filled).'));
+      offerEmailFallback('Couldn’t send from here — ');
     } finally {
       submit.disabled = false;
     }
