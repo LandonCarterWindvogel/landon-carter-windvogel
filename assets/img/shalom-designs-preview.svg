@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="875" viewBox="0 0 1400 875" fill="none">
+<title>SHALOM — project preview artwork</title>
+<desc>A local design illustration used when an automatic website screenshot cannot be loaded.</desc>
+<rect width="1400" height="875" fill="#0b0d0d"/>
+<path d="M0 125H1400M0 250H1400M0 375H1400M0 500H1400M0 625H1400M0 750H1400M175 0V875M350 0V875M525 0V875M700 0V875M875 0V875M1050 0V875M1225 0V875" stroke="#f4f3ee" stroke-opacity=".045"/>
+<rect x="58" y="48" width="1284" height="779" rx="5" stroke="#f4f3ee" stroke-opacity=".22"/>
+<path d="M58 112H1342" stroke="#f4f3ee" stroke-opacity=".22"/>
+<circle cx="88" cy="80" r="6" fill="#ef7669"/><circle cx="111" cy="80" r="6" fill="#e5bd63"/><circle cx="134" cy="80" r="6" fill="#8ccf8a"/>
+<text x="177" y="86" fill="#9b9c96" font-family="monospace" font-size="18" letter-spacing="2">ECOMMERCE / BRAND / UX</text>
+<rect x="1016" y="66" width="285" height="29" rx="14.5" fill="#f4f3ee" fill-opacity=".055" stroke="#f4f3ee" stroke-opacity=".15"/>
+<circle cx="1036" cy="80" r="4" fill="#d8b75b"/>
+<text x="1050" y="86" fill="#f4f3ee" font-family="monospace" font-size="13" letter-spacing="1.5">PROJECT PREVIEW</text>
+<text x="104" y="226" fill="#d8b75b" font-family="monospace" font-size="18" letter-spacing="4">DESIGNS</text>
+<text x="96" y="349" fill="#f4f3ee" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="112" letter-spacing="-7">SHALOM</text>
+<path d="M104 383H500" stroke="#d8b75b" stroke-width="5"/>
+<text x="104" y="433" fill="#9b9c96" font-family="monospace" font-size="19" letter-spacing="2">FOR ALL YOUR SEWING NEEDS</text>
+<g transform="translate(805 170)">
+<rect width="430" height="480" rx="4" fill="#131717" stroke="#f4f3ee" stroke-opacity=".18"/>
+<rect x="22" y="22" width="386" height="245" rx="3" fill="#191f1e"/>
+<circle cx="215" cy="145" r="94" fill="#d8b75b" fill-opacity=".95"/>
+<circle cx="269" cy="111" r="65" fill="#4877f0" fill-opacity=".92"/>
+<path d="M90 225L171 112L245 225Z" fill="#9bb0f7" fill-opacity=".98"/>
+<path d="M21 293H409" stroke="#f4f3ee" stroke-opacity=".17"/>
+<rect x="24" y="318" width="214" height="13" rx="6.5" fill="#f4f3ee" fill-opacity=".82"/>
+<rect x="24" y="343" width="310" height="8" rx="4" fill="#9b9c96" fill-opacity=".38"/>
+<rect x="24" y="361" width="268" height="8" rx="4" fill="#9b9c96" fill-opacity=".24"/>
+<rect x="24" y="402" width="155" height="44" rx="22" fill="#d8b75b"/>
+<path d="M202 424H288" stroke="#f4f3ee" stroke-opacity=".38" stroke-width="2"/>
+<path d="M279 416L288 424L279 432" stroke="#f4f3ee" stroke-opacity=".65" stroke-width="2"/>
+</g>
+<text x="104" y="740" fill="#f4f3ee" font-family="monospace" font-size="17" letter-spacing="2">LCW / CASE STUDY</text>
+<text x="1290" y="740" fill="#62645f" text-anchor="end" font-family="monospace" font-size="17">LIVE CAPTURE FALLBACK</text>
+<path d="M104 765H1296" stroke="#f4f3ee" stroke-opacity=".18"/>
+<text x="104" y="795" fill="#62645f" font-family="monospace" font-size="14" letter-spacing="1.5">LANDON CARTER WINDVOGEL · WEB DESIGN &amp; DEVELOPMENT</text>
+</svg>
