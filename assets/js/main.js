@@ -139,7 +139,10 @@
       const trigger = document.createElement('button');
       trigger.className = 'select-control__trigger';
       trigger.type = 'button';
+      trigger.setAttribute('role', 'combobox');
+      trigger.setAttribute('aria-autocomplete', 'none');
       trigger.setAttribute('aria-haspopup', 'listbox');
+      if (select.required) trigger.setAttribute('aria-required', 'true');
       trigger.setAttribute('aria-expanded', 'false');
 
       const value = document.createElement('span');
@@ -227,7 +230,10 @@
         control.options.forEach((option, index) => {
           option.setAttribute('aria-selected', String(index === select.selectedIndex));
         });
-        if (select.value) root.classList.remove('is-invalid');
+        if (select.value) {
+          root.classList.remove('is-invalid');
+          trigger.removeAttribute('aria-invalid');
+        }
       };
 
       control.setActive = (index) => {
@@ -350,6 +356,7 @@
       select.addEventListener('change', control.updateValue);
       select.addEventListener('invalid', () => {
         root.classList.add('is-invalid');
+        trigger.setAttribute('aria-invalid', 'true');
         trigger.focus();
       });
 
@@ -369,6 +376,18 @@
   const customProjectSelects = initCustomProjectSelects();
 
   const form = $('.contact-form');
+  form?.addEventListener('reset', () => {
+    // Native form reset does not emit change on the hidden select, so refresh after reset completes.
+    window.setTimeout(() => {
+      customProjectSelects.forEach((control) => {
+        control.close();
+        control.updateValue();
+        control.root.classList.remove('is-invalid');
+        control.trigger.removeAttribute('aria-invalid');
+      });
+    }, 0);
+  });
+
   form?.addEventListener('submit', async (event) => {
     event.preventDefault();
     const status = $('.form-status', form);
