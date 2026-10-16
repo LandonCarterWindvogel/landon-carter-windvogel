@@ -168,6 +168,7 @@
       const control = {
         root,
         select,
+        required: select.required,
         trigger,
         value,
         popup,
@@ -198,6 +199,8 @@
 
       root.append(trigger, popup);
       root.classList.add('is-enhanced');
+      // Keep browser validation on visible fields; validate this visually replaced control below.
+      select.required = false;
       select.setAttribute('aria-hidden', 'true');
       select.tabIndex = -1;
 
@@ -403,6 +406,17 @@
       status.replaceChildren(document.createTextNode(message), link,
         document.createTextNode(' (your message is pre-filled).'));
     };
+
+    const missingProject = customProjectSelects.find((control) =>
+      control.required && !control.select.value
+    );
+    if (missingProject) {
+      missingProject.root.classList.add('is-invalid');
+      missingProject.trigger.setAttribute('aria-invalid', 'true');
+      status.textContent = 'Choose a project type before sending.';
+      missingProject.trigger.focus();
+      return;
+    }
 
     // GitHub Pages is static hosting; never report a fake successful form submission.
     if (window.location.hostname.endsWith('.github.io')) {
