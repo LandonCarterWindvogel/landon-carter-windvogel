@@ -125,6 +125,249 @@
     if (img.complete && img.naturalWidth === 0) tryFallback();
   });
 
+  // Upgrade the project selector while retaining the real select as the form value.
+  // The native control remains in the DOM for Netlify and browser validation.
+  function initCustomProjectSelects() {
+    const controls = [];
+
+    $('[data-custom-select]').forEach((root, controlIndex) => {
+      const select = $('select', root);
+      const field = root.closest('.field');
+      const label = field ? $('.field__label', field) : null;
+      if (!select || !label || !select.id || !select.options.length) return;
+
+      const trigger = document.createElement('button');
+      trigger.className = 'select-control__trigger';
+      trigger.type = 'button';
+      trigger.setAttribute('aria-haspopup', 'listbox');
+      trigger.setAttribute('aria-expanded', 'false');
+
+      const value = document.createElement('span');
+      value.className = 'select-control__value';
+      value.id = select.id + '-value';
+
+      const chevron = document.createElement('span');
+      chevron.className = 'select-control__chevron';
+      chevron.setAttribute('aria-hidden', 'true');
+
+      trigger.append(value, chevron);
+      trigger.setAttribute('aria-labelledby', label.id + ' ' + value.id);
+
+      const popup = document.createElement('div');
+      popup.className = 'select-control__popup';
+      popup.id = select.id + '-options';
+      popup.setAttribute('role', 'listbox');
+      popup.setAttribute('aria-labelledby', label.id);
+      popup.setAttribute('aria-hidden', 'true');
+      popup.inert = true;
+      trigger.setAttribute('aria-controls', popup.id);
+
+      const control = {
+        root,
+        select,
+        trigger,
+        value,
+        popup,
+        options: [],
+        activeIndex: -1,
+        isOpen: false,
+        typeahead: '',
+        typeaheadTimer: null
+      };
+
+      Array.from(select.options).forEach((nativeOption, optionIndex) => {
+        const option = document.createElement('div');
+        option.className = 'select-control__option';
+        option.id = select.id + '-option-' + optionIndex;
+        option.setAttribute('role', 'option');
+        option.setAttribute('aria-selected', String(nativeOption.selected));
+        option.setAttribute('aria-disabled', String(nativeOption.disabled));
+        option.dataset.optionIndex = String(optionIndex);
+        option.textContent = nativeOption.textContent.trim();
+        popup.append(option);
+        control.options.push(option);
+
+        option.addEventListener('click', () => {
+          if (nativeOption.disabled) return;
+          chooseOption(control, optionIndex);
+        });
+      });
+
+      root.append(trigger, popup);
+      root.classList.add('is-enhanced');
+      select.setAttribute('aria-hidden', 'true');
+      select.tabIndex = -1;
+
+      // Clicking the visible label should focus the custom control, not the clipped select.
+      label.addEventListener('click', (event) => {
+        event.preventDefault();
+        trigger.focus();
+      });
+
+      const firstEnabledIndex = () => control.options.findIndex((option) =>
+        option.getAttribute('aria-disabled') !== 'true'
+      );
+      const lastEnabledIndex = () => {
+        for (let index = control.options.length - 1; index >= 0; index -= 1) {
+          if (control.options[index].getAttribute('aria-disabled') !== 'true') return index;
+        }
+        return -1;
+      };
+      const selectedEnabledIndex = () => {
+        const index = select.selectedIndex;
+        return index >= 0 && control.options[index]?.getAttribute('aria-disabled') !== 'true'
+          ? index
+          : firstEnabledIndex();
+      };
+
+      control.updateValue = () => {
+        const selectedOption = select.options[select.selectedIndex];
+        value.textContent = selectedOption ? selectedOption.textContent.trim() : 'Choose a project type';
+        trigger.dataset.placeholder = String(!select.value);
+        control.options.forEach((option, index) => {
+          option.setAttribute('aria-selected', String(index === select.selectedIndex));
+        });
+        if (select.value) root.classList.remove('is-invalid');
+      };
+
+      control.setActive = (index) => {
+        const option = control.options[index];
+        if (!option || option.getAttribute('aria-disabled') === 'true') return;
+        control.activeIndex = index;
+        control.options.forEach((item, itemIndex) => item.classList.toggle('is-active', itemIndex === index));
+        trigger.setAttribute('aria-activedescendant', option.id);
+        option.scrollIntoView({ block: 'nearest' });
+      };
+
+      control.open = () => {
+        if (control.isOpen) return;
+        control.isOpen = true;
+        root.dataset.open = 'true';
+        trigger.setAttribute('aria-expanded', 'true');
+        popup.setAttribute('aria-hidden', 'false');
+        popup.inert = false;
+        control.setActive(selectedEnabledIndex());
+      };
+
+      control.close = (restoreFocus = false) => {
+        if (!control.isOpen) {
+          if (restoreFocus) trigger.focus();
+          return;
+        }
+        control.isOpen = false;
+        delete root.dataset.open;
+        trigger.setAttribute('aria-expanded', 'false');
+        trigger.removeAttribute('aria-activedescendant');
+        popup.setAttribute('aria-hidden', 'true');
+        popup.inert = true;
+        control.options.forEach((option) => option.classList.remove('is-active'));
+        control.activeIndex = -1;
+        if (restoreFocus) trigger.focus();
+      };
+
+      function chooseOption(controlRef, index) {
+        const nativeOption = controlRef.select.options[index];
+        if (!nativeOption || nativeOption.disabled) return;
+        controlRef.select.selectedIndex = index;
+        controlRef.select.dispatchEvent(new Event('input', { bubbles: true }));
+        controlRef.select.dispatchEvent(new Event('change', { bubbles: true }));
+        controlRef.updateValue();
+        controlRef.close(true);
+      }
+
+      control.moveActive = (direction) => {
+        const enabled = control.options
+          .map((option, index) => ({ option, index }))
+          .filter(({ option }) => option.getAttribute('aria-disabled') !== 'true')
+          .map(({ index }) => index);
+        if (!enabled.length) return;
+        const currentPosition = enabled.indexOf(control.activeIndex);
+        const nextPosition = Math.max(0, Math.min(enabled.length - 1,
+          (currentPosition < 0 ? 0 : currentPosition) + direction));
+        control.setActive(enabled[nextPosition]);
+      };
+
+      trigger.addEventListener('click', () => {
+        if (control.isOpen) control.close();
+        else control.open();
+      });
+
+      trigger.addEventListener('keydown', (event) => {
+        const key = event.key;
+        if (key === 'Escape' && control.isOpen) {
+          event.preventDefault();
+          control.close(true);
+          return;
+        }
+        if (key === 'Tab') {
+          if (control.isOpen) control.close();
+          return;
+        }
+        if (key === 'ArrowDown' || key === 'ArrowUp') {
+          event.preventDefault();
+          if (!control.isOpen) {
+            control.open();
+            if (key === 'ArrowUp' && control.activeIndex === firstEnabledIndex()) {
+              control.setActive(lastEnabledIndex());
+            }
+          } else {
+            control.moveActive(key === 'ArrowDown' ? 1 : -1);
+          }
+          return;
+        }
+        if (key === 'Home' || key === 'End') {
+          event.preventDefault();
+          if (!control.isOpen) control.open();
+          control.setActive(key === 'Home' ? firstEnabledIndex() : lastEnabledIndex());
+          return;
+        }
+        if (key === 'Enter' || key === ' ') {
+          event.preventDefault();
+          if (!control.isOpen) control.open();
+          else if (control.activeIndex >= 0) chooseOption(control, control.activeIndex);
+          return;
+        }
+
+        if (key.length === 1 && !event.ctrlKey && !event.metaKey && !event.altKey) {
+          control.typeahead += key.toLocaleLowerCase();
+          window.clearTimeout(control.typeaheadTimer);
+          control.typeaheadTimer = window.setTimeout(() => { control.typeahead = ''; }, 700);
+          const start = Math.max(0, control.activeIndex + 1);
+          const ordered = control.options.map((option, index) => ({ option, index }));
+          const searchOrder = ordered.slice(start).concat(ordered.slice(0, start));
+          const match = searchOrder.find(({ option }) =>
+            option.getAttribute('aria-disabled') !== 'true' &&
+            option.textContent.trim().toLocaleLowerCase().startsWith(control.typeahead)
+          );
+          if (match) {
+            event.preventDefault();
+            if (!control.isOpen) control.open();
+            control.setActive(match.index);
+          }
+        }
+      });
+
+      select.addEventListener('change', control.updateValue);
+      select.addEventListener('invalid', () => {
+        root.classList.add('is-invalid');
+        trigger.focus();
+      });
+
+      control.updateValue();
+      controls.push(control);
+    });
+
+    document.addEventListener('pointerdown', (event) => {
+      controls.forEach((control) => {
+        if (!control.root.contains(event.target)) control.close();
+      });
+    });
+
+    return controls;
+  }
+
+  const customProjectSelects = initCustomProjectSelects();
+
   const form = $('.contact-form');
   form?.addEventListener('submit', async (event) => {
     event.preventDefault();
