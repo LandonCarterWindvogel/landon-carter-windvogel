@@ -130,7 +130,7 @@
   function initCustomProjectSelects() {
     const controls = [];
 
-    $('[data-custom-select]').forEach((root) => {
+    $$('[data-custom-select]').forEach((root) => {
       const select = $('select', root);
       const field = root.closest('.field');
       const label = field ? $('.field__label', field) : null;
