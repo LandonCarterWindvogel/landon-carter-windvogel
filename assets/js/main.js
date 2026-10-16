@@ -130,7 +130,7 @@
   function initCustomProjectSelects() {
     const controls = [];
 
-    $('[data-custom-select]').forEach((root, controlIndex) => {
+    $('[data-custom-select]').forEach((root) => {
       const select = $('select', root);
       const field = root.closest('.field');
       const label = field ? $('.field__label', field) : null;
@@ -313,9 +313,6 @@
           event.preventDefault();
           if (!control.isOpen) {
             control.open();
-            if (key === 'ArrowUp' && control.activeIndex === firstEnabledIndex()) {
-              control.setActive(lastEnabledIndex());
-            }
           } else {
             control.moveActive(key === 'ArrowDown' ? 1 : -1);
           }
