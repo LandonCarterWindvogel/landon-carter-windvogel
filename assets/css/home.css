@@ -71,3 +71,214 @@ body.menu-open { overflow:hidden; }
   .menu-toggle span, .mobile-menu nav a, .contact .field select { transition:none; }
   .mobile-menu nav a { opacity:1; transform:none; }
 }
+
+
+/* ---- Custom project select: branded, accessible and deliberately unhurried ---- */
+.field__label {
+  display: block;
+  margin: 0;
+  color: var(--bg);
+  font: 500 var(--fs-micro, .8rem)/1.35 var(--mono);
+  text-transform: uppercase;
+  opacity: .65;
+}
+
+.field--project { min-width: 0; }
+.select-control { position: relative; width: 100%; }
+.select-control__native { width: 100%; }
+
+.select-control__trigger,
+.select-control__popup { display: none; }
+
+.select-control.is-enhanced .select-control__native {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.select-control.is-enhanced .select-control__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  min-height: 3.5rem;
+  padding: .85rem .35rem .85rem 0;
+  border: 0;
+  border-bottom: 1px solid rgba(11, 13, 13, .45);
+  border-radius: 0;
+  background: transparent;
+  color: var(--bg);
+  text-align: left;
+  cursor: pointer;
+  transition: background-color .24s ease, border-color .24s ease;
+}
+
+.select-control__trigger:hover,
+.select-control__trigger[aria-expanded="true"] {
+  border-bottom-color: var(--bg);
+  background-color: rgba(11, 13, 13, .035);
+}
+
+.select-control__trigger:focus-visible {
+  outline: 2px solid var(--bg);
+  outline-offset: 4px;
+}
+
+.select-control__value {
+  min-width: 0;
+  overflow: hidden;
+  font: 500 .8rem/1.4 var(--mono);
+  text-overflow: ellipsis;
+}
+
+.select-control__trigger[data-placeholder="true"] .select-control__value {
+  color: rgba(11, 13, 13, .62);
+}
+
+.select-control__chevron {
+  flex: 0 0 auto;
+  width: .65rem;
+  height: .65rem;
+  margin: -.3rem .25rem 0 0;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform .32s var(--ease);
+}
+
+.select-control[data-open="true"] .select-control__chevron {
+  margin-top: .35rem;
+  transform: rotate(225deg);
+}
+
+.select-control.is-enhanced .select-control__popup {
+  position: absolute;
+  z-index: 40;
+  top: calc(100% + .75rem);
+  right: 0;
+  left: 0;
+  display: block;
+  max-height: min(19rem, 45vh);
+  overflow: auto;
+  padding: .4rem;
+  border: 1px solid rgba(244, 243, 238, .16);
+  border-radius: .85rem;
+  background: #101313;
+  box-shadow: 0 24px 55px rgba(0, 0, 0, .3), 0 0 0 1px rgba(216, 255, 79, .035);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-8px) scale(.985);
+  transform-origin: top center;
+  transition: opacity .24s ease, transform .32s var(--ease), visibility 0s linear .32s;
+  overscroll-behavior: contain;
+  scrollbar-color: rgba(216, 255, 79, .4) #101313;
+  scrollbar-width: thin;
+}
+
+.select-control[data-open="true"] .select-control__popup {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+  transition: opacity .26s ease, transform .32s var(--ease), visibility 0s linear 0s;
+}
+
+.select-control__option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  min-height: 2.8rem;
+  padding: .7rem .8rem .7rem 1rem;
+  border-radius: .5rem;
+  color: #f4f3ee;
+  font: 500 .76rem/1.4 var(--mono);
+  letter-spacing: .015em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color .18s ease, background-color .18s ease;
+}
+
+.select-control__option::before {
+  position: absolute;
+  inset: .65rem auto .65rem 0;
+  width: 2px;
+  border-radius: 2px;
+  background: var(--accent);
+  content: "";
+  opacity: 0;
+  transform: scaleY(.4);
+  transition: opacity .18s ease, transform .22s var(--ease);
+}
+
+.select-control__option:hover,
+.select-control__option.is-active {
+  background: rgba(216, 255, 79, .1);
+  color: var(--accent);
+}
+
+.select-control__option.is-active::before {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.select-control__option[aria-selected="true"] {
+  color: var(--accent);
+}
+
+.select-control__option[aria-selected="true"]::after {
+  color: var(--accent);
+  content: "✓";
+  font: 500 .8rem var(--mono);
+}
+
+.select-control__option[aria-disabled="true"] {
+  color: #777b72;
+  cursor: not-allowed;
+}
+
+.select-control__option[aria-disabled="true"]:hover {
+  background: transparent;
+  color: #777b72;
+}
+
+.select-control.is-invalid .select-control__trigger {
+  border-bottom-color: #7f251f;
+  box-shadow: 0 1px 0 #7f251f;
+}
+
+.select-control.is-invalid .select-control__trigger:focus-visible {
+  outline-color: #7f251f;
+}
+
+@media (hover: hover) {
+  .select-control__option:not([aria-disabled="true"]):hover::before {
+    opacity: .7;
+    transform: scaleY(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .select-control__trigger,
+  .select-control__chevron,
+  .select-control__popup,
+  .select-control__option,
+  .select-control__option::before {
+    transition: none !important;
+  }
+
+  .select-control__popup,
+  .select-control[data-open="true"] .select-control__popup {
+    transform: none;
+  }
+}
