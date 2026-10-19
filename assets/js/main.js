@@ -113,7 +113,7 @@
   // Keep the project list calm by default, then accent the row nearest the viewport center.
   // Hover/focus takes precedence so keyboard and pointer users get the same clear feedback.
   const workList = $('.work-list');
-  const workItems = workList ? $('.work-item', workList) : [];
+  const workItems = workList ? Array.from(workList.querySelectorAll('.work-item')) : [];
 
   if ('IntersectionObserver' in window && workItems.length) {
     const visibleWorkItems = new Set();
