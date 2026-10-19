@@ -110,7 +110,73 @@
     });
   }
 
-  $$('.work-item img, .case-shot img').forEach((img) => {
+  // Keep the project list calm by default, then accent the row nearest the viewport center.
+  // Hover/focus takes precedence so keyboard and pointer users get the same clear feedback.
+  const workList = $('.work-list');
+  const workItems = workList ? $('.work-item', workList) : [];
+
+  if ('IntersectionObserver' in window && workItems.length) {
+    const visibleWorkItems = new Set();
+    let interactedWorkItem = null;
+    let workFrame = 0;
+
+    const syncActiveWorkItem = () => {
+      if (workFrame) return;
+      workFrame = window.requestAnimationFrame(() => {
+        workFrame = 0;
+        let current = interactedWorkItem;
+        if (!current) {
+          const viewportCenter = window.innerHeight / 2;
+          let closestDistance = Infinity;
+          visibleWorkItems.forEach((item) => {
+            const bounds = item.getBoundingClientRect();
+            const itemCenter = bounds.top + bounds.height / 2;
+            const distance = Math.abs(itemCenter - viewportCenter);
+            if (distance < closestDistance) {
+              current = item;
+              closestDistance = distance;
+            }
+          });
+        }
+        workItems.forEach((item) => item.classList.toggle('is-active', item === current));
+      });
+    };
+
+    const workObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) visibleWorkItems.add(entry.target);
+        else visibleWorkItems.delete(entry.target);
+      });
+      syncActiveWorkItem();
+    }, { threshold: 0 });
+
+    workItems.forEach((item) => {
+      workObserver.observe(item);
+      item.addEventListener('pointerenter', () => {
+        interactedWorkItem = item;
+        syncActiveWorkItem();
+      });
+      item.addEventListener('pointerleave', () => {
+        if (interactedWorkItem === item) interactedWorkItem = null;
+        syncActiveWorkItem();
+      });
+      item.addEventListener('focusin', () => {
+        interactedWorkItem = item;
+        syncActiveWorkItem();
+      });
+      item.addEventListener('focusout', (event) => {
+        if (!item.contains(event.relatedTarget) && interactedWorkItem === item) {
+          interactedWorkItem = null;
+          syncActiveWorkItem();
+        }
+      });
+    });
+
+    window.addEventListener('scroll', syncActiveWorkItem, { passive: true });
+    window.addEventListener('resize', syncActiveWorkItem, { passive: true });
+  }
+
+  $('.work-item img, .case-shot img').forEach((img) => {
     const showFailure = () => img.closest('figure')?.classList.add('image-failed');
     const tryFallback = () => {
       const fallback = img.dataset.fallback;
