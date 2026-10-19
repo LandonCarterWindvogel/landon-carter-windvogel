@@ -176,7 +176,7 @@
     window.addEventListener('resize', syncActiveWorkItem, { passive: true });
   }
 
-  $('.work-item img, .case-shot img').forEach((img) => {
+  $$('.work-item img, .case-shot img').forEach((img) => {
     const showFailure = () => img.closest('figure')?.classList.add('image-failed');
     const tryFallback = () => {
       const fallback = img.dataset.fallback;
