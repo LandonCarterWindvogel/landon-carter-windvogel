@@ -282,3 +282,63 @@ body.menu-open { overflow:hidden; }
     transform: none;
   }
 }
+
+
+/* ---- Selected work: neutral by default, lime only on interaction/current scroll ---- */
+.work-item {
+  transition: padding .32s var(--ease), border-color .32s ease;
+}
+
+.work-item h3 {
+  color: var(--ink);
+  text-shadow: none;
+  transition: color .28s ease, text-shadow .32s ease;
+}
+
+/* Paivepo is no longer permanently accented; every project shares the same state rules. */
+.work-item--featured h3 { color: var(--ink); text-shadow: none; }
+
+.work-item:is(:hover, :focus-visible, .is-active) {
+  border-bottom-color: rgba(216, 255, 79, .32);
+}
+
+.work-item:is(:hover, :focus-visible, .is-active) h3 {
+  color: var(--accent);
+  text-shadow: 0 0 34px rgba(216, 255, 79, .12);
+}
+
+.work-item:is(:hover, :focus-visible, .is-active) > span:first-child {
+  color: var(--accent);
+}
+
+.work-item:is(:hover, :focus-visible, .is-active) > b {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+
+.work-item > span:nth-of-type(2) {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  padding: .28rem .5rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font: 500 .58rem/1.2 var(--mono);
+  white-space: nowrap;
+  transition: border-color .28s ease, color .28s ease;
+}
+
+.work-item:is(:hover, :focus-visible, .is-active) > span:nth-of-type(2) {
+  border-color: rgba(216, 255, 79, .38);
+  color: var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-item,
+  .work-item h3,
+  .work-item > span:nth-of-type(2) {
+    transition: none !important;
+  }
+}
