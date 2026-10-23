@@ -507,4 +507,108 @@
       submit.disabled = false;
     }
   });
+
+  // ---------------------------------------------------------------------------
+  // Enhancements: service → form preselect, counters, magnetic buttons,
+  // work-preview parallax and the cursor follower. All progressive: nothing
+  // here is required for the content or the form to work.
+  // ---------------------------------------------------------------------------
+  const finePointer = window.matchMedia('(pointer: fine)').matches;
+
+  // Service rows preselect the matching project type in the enquiry form.
+  $$('[data-service]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const select = $('#project-type');
+      if (!select) return;
+      const wanted = link.dataset.service;
+      const index = Array.from(select.options).findIndex((option) => option.textContent.trim() === wanted);
+      if (index < 0) return;
+      select.selectedIndex = index;
+      select.dispatchEvent(new Event('change', { bubbles: true }));
+    });
+  });
+
+  // Count-up for numeric facts, once, when they scroll into view.
+  const counters = $$('[data-count]');
+  if (counters.length && 'IntersectionObserver' in window && !reduceMotion) {
+    const countObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        countObserver.unobserve(entry.target);
+        const el = entry.target;
+        const end = Number(el.dataset.count);
+        if (!end) return;
+        const start = performance.now();
+        const duration = 1100;
+        const tick = (now) => {
+          const t = Math.min((now - start) / duration, 1);
+          el.textContent = String(Math.round(end * (1 - Math.pow(1 - t, 3))));
+          if (t < 1) requestAnimationFrame(tick);
+        };
+        el.textContent = '0';
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.6 });
+    counters.forEach((el) => countObserver.observe(el));
+  }
+
+  if (finePointer && !reduceMotion) {
+    // Magnetic buttons: a gentle pull toward the pointer.
+    $$('[data-magnetic]').forEach((el) => {
+      el.addEventListener('pointermove', (event) => {
+        const b = el.getBoundingClientRect();
+        const x = (event.clientX - (b.left + b.width / 2)) * 0.22;
+        const y = (event.clientY - (b.top + b.height / 2)) * 0.32;
+        el.style.transform = 'translate3d(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px,0)';
+      });
+      el.addEventListener('pointerleave', () => { el.style.transform = ''; });
+    });
+
+    // Work previews drift slightly with the pointer.
+    $$('.work-item').forEach((item) => {
+      item.addEventListener('pointermove', (event) => {
+        const b = item.getBoundingClientRect();
+        item.style.setProperty('--px', (((event.clientX - b.left) / b.width) * 2 - 1).toFixed(3));
+        item.style.setProperty('--py', (((event.clientY - b.top) / b.height) * 2 - 1).toFixed(3));
+      }, { passive: true });
+    });
+
+    // Cursor follower. The native cursor stays visible; this ring only adds feedback.
+    const ring = document.createElement('div');
+    ring.className = 'cursor';
+    ring.setAttribute('aria-hidden', 'true');
+    const ringLabel = document.createElement('span');
+    ringLabel.textContent = 'View';
+    ring.append(ringLabel);
+    document.body.append(ring);
+
+    let tx = 0, ty = 0, cx = 0, cy = 0, running = false;
+    const loop = () => {
+      cx += (tx - cx) * 0.2;
+      cy += (ty - cy) * 0.2;
+      ring.style.transform = 'translate3d(' + cx.toFixed(1) + 'px,' + cy.toFixed(1) + 'px,0)';
+      if (Math.abs(tx - cx) > 0.1 || Math.abs(ty - cy) > 0.1) requestAnimationFrame(loop);
+      else running = false;
+    };
+    const syncRingState = () => {
+      const target = document.elementFromPoint(tx, ty);
+      const overWork = !!target?.closest('.work-item');
+      const overLink = !overWork && !!target?.closest('a, button, [role="option"], input, textarea');
+      ring.classList.toggle('is-view', overWork);
+      ring.classList.toggle('is-link', overLink);
+    };
+    let ringFrame = 0;
+    window.addEventListener('pointermove', (event) => {
+      tx = event.clientX; ty = event.clientY;
+      if (!ring.classList.contains('is-on')) { cx = tx; cy = ty; ring.classList.add('is-on'); }
+      if (!running) { running = true; requestAnimationFrame(loop); }
+      syncRingState();
+    }, { passive: true });
+    // The pointer doesn't move while the page scrolls under it, so refresh then too.
+    window.addEventListener('scroll', () => {
+      if (ringFrame || !ring.classList.contains('is-on')) return;
+      ringFrame = requestAnimationFrame(() => { ringFrame = 0; syncRingState(); });
+    }, { passive: true });
+    document.documentElement.addEventListener('pointerleave', () => ring.classList.remove('is-on'));
+  }
 })();

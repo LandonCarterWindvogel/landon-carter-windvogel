@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1400" height="875" viewBox="0 0 1400 875" fill="none">
 <title>POSTNET — project preview artwork</title>
-<desc>A local design illustration used when an automatic website screenshot cannot be loaded.</desc>
+<desc>Illustrative preview artwork for the project.</desc>
 <rect width="1400" height="875" fill="#0b0d0d"/>
 <path d="M0 125H1400M0 250H1400M0 375H1400M0 500H1400M0 625H1400M0 750H1400M175 0V875M350 0V875M525 0V875M700 0V875M875 0V875M1050 0V875M1225 0V875" stroke="#f4f3ee" stroke-opacity=".045"/>
 <rect x="58" y="48" width="1284" height="779" rx="5" stroke="#f4f3ee" stroke-opacity=".22"/>
@@ -29,7 +29,7 @@
 <path d="M279 416L288 424L279 432" stroke="#f4f3ee" stroke-opacity=".65" stroke-width="2"/>
 </g>
 <text x="104" y="740" fill="#f4f3ee" font-family="monospace" font-size="17" letter-spacing="2">LCW / CASE STUDY</text>
-<text x="1290" y="740" fill="#62645f" text-anchor="end" font-family="monospace" font-size="17">LIVE CAPTURE FALLBACK</text>
+<text x="1290" y="740" fill="#62645f" text-anchor="end" font-family="monospace" font-size="17">2026</text>
 <path d="M104 765H1296" stroke="#f4f3ee" stroke-opacity=".18"/>
 <text x="104" y="795" fill="#62645f" font-family="monospace" font-size="14" letter-spacing="1.5">LANDON CARTER WINDVOGEL · WEB DESIGN &amp; DEVELOPMENT</text>
 </svg>

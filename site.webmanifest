@@ -1,0 +1,13 @@
+{
+  "name": "Landon Carter Windvogel",
+  "short_name": "LCW",
+  "description": "Web design and development in Plettenberg Bay.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#0b0d0d",
+  "theme_color": "#0b0d0d",
+  "icons": [
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

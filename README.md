@@ -21,9 +21,8 @@ Each project is meant to show some combination of design, UX, responsive develop
 | 01 | **Paivepo Art & Decor** | Pre-launch | Premium art, decor and visual storytelling |
 | 02 | **BL&N Electrical & Plumbing** | Live | Local business website and lead generation |
 | 03 | **JM Cab Services** | Live | Conversion-focused service website |
-| 04 | **Shalom Designs** | In development | Ecommerce, catalogue UX and redesign |
-
-**PostNet Production** is documented separately because it is an internal production-management product rather than a client case study.
+| 04 | **PostNet Production** | Live | Realtime internal PWA (Vite, vanilla JS, Supabase) |
+| 05 | **Shalom Designs** | In development | Ecommerce, catalogue UX and redesign |
 
 ## How I build things
 
@@ -43,21 +42,24 @@ I keep coming back to a few rules because they make life easier later:
 ```text
 .
 ├── assets/
-│   ├── css/
-│   ├── images/
+│   ├── css/site.css          # the only stylesheet (tokens → base → components → pages)
+│   ├── fonts/                # self-hosted Space Grotesk + DM Mono (woff2, latin)
+│   ├── img/                  # preview artwork, OG image, portrait artwork
 │   └── js/
-├── projects/
-│   ├── paivepo.html
-│   ├── bln-electrical.html
-│   ├── jm-cab-services.html
-│   └── shalom-designs.html
-├── docs/
+│       ├── main.js           # nav, reveals, form, cursor, magnetic buttons, counters
+│       └── hero-gl.js        # WebGL hero background (progressive enhancement)
+├── projects/                 # one case study per project
+├── scripts/
+│   ├── validate_site.py      # links, anchors, SEO tags, CSP hash, sitemap
+│   ├── set_domain.py         # one command to switch the canonical domain
+│   └── capture_screenshots.py# real screenshots → assets/img/work/*.webp
+├── docs/portfolio-notes.md   # pre-launch checklist
+├── .github/workflows/validate.yml
 ├── 404.html
 ├── index.html
-├── netlify.toml
-├── robots.txt
-├── .editorconfig
-├── .gitignore
+├── netlify.toml              # security headers, CSP, caching
+├── site.webmanifest, favicon.*, apple-touch-icon.png
+├── robots.txt, sitemap.xml
 └── README.md
 ```
 
@@ -79,7 +81,20 @@ Then open:
 http://localhost:8000
 ```
 
-I develop in VS Code, keep the source in GitHub and deploy through Netlify.
+Before pushing, run the checks (same ones CI runs):
+
+```bash
+node --check assets/js/main.js && node --check assets/js/hero-gl.js
+python3 scripts/validate_site.py
+```
+
+Note: the local preview does not send the Netlify security headers, and the contact form only submits on Netlify.
+
+I develop in VS Code, keep the source in GitHub and deploy through Netlify. GitHub Actions only validates; it does not deploy (the contact form needs Netlify Forms).
+
+### Design system in one paragraph
+
+Near-black `#0b0d0d`, ink `#f4f3ee`, one accent lime `#d8ff4f`. Space Grotesk for everything readable, DM Mono for small data labels. One memorable moment (the hero shader), quiet everywhere else. Motion: one load sequence, cross-page View Transitions, scroll-driven entrances where supported, and feedback on hover. All of it is switched off by `prefers-reduced-motion`.
 
 ## Deployment
 
