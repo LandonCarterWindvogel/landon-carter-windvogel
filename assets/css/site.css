@@ -327,7 +327,7 @@ html:not(.js) .reveal, .no-reveal { opacity: 1; transform: none; }
 
 /* scroll-driven entrance (progressive enhancement) */
 @supports (animation-timeline: view()) {
-  .work-item { animation: work-in linear both; animation-timeline: view(); animation-range: entry 0% entry 55%; }
+  .work-item, .service { animation: work-in linear both; animation-timeline: view(); animation-range: entry 0% entry 55%; }
   @keyframes work-in { from { opacity: 0.15; transform: translateY(36px); } to { opacity: 1; transform: none; } }
 }
 
@@ -348,17 +348,25 @@ html:not(.js) .reveal, .no-reveal { opacity: 1; transform: none; }
 .service {
   display: grid; grid-template-columns: 1fr auto; gap: 8px 24px; align-items: center;
   padding-block: clamp(24px, 3vw, 40px); border-bottom: 1px solid var(--line);
-  transition: background 0.3s, padding 0.5s var(--ease);
+  transition: background 0.4s;
 }
 .service h3 { font-size: clamp(1.6rem, 3.4vw, 3rem); font-weight: 600; letter-spacing: -0.04em; line-height: 1.05; }
 .service p { grid-column: 1; color: var(--muted); max-width: 58ch; }
+.service > div, .service > p { transition: transform 0.55s var(--ease); }
 .service b {
   grid-column: 2; grid-row: 1 / span 2; display: grid; place-items: center; width: 52px; height: 52px;
-  border: 1px solid var(--line-strong); border-radius: 50%; font-weight: 400; transition: background 0.3s, color 0.3s, transform 0.5s var(--ease);
+  border: 1px solid var(--line-strong); border-radius: 50%; font-weight: 400;
+  transition: background 0.35s, color 0.35s, border-color 0.35s, transform 0.55s var(--ease);
 }
 @media (hover: hover) {
-  .service:hover { padding-left: 16px; background: linear-gradient(90deg, rgba(216, 255, 79, 0.07), transparent 60%); }
-  .service:hover b { background: var(--lime); color: var(--lime-ink); border-color: var(--lime); transform: rotate(-45deg); }
+  .service:hover, .service:focus-visible {
+    background: linear-gradient(90deg, rgba(216, 255, 79, 0.07), transparent 60%);
+  }
+  .service:hover > div, .service:hover > p,
+  .service:focus-visible > div, .service:focus-visible > p { transform: translateX(10px); }
+  .service:hover b, .service:focus-visible b {
+    background: var(--lime); color: var(--lime-ink); border-color: var(--lime); transform: rotate(-45deg);
+  }
 }
 
 /* ---------- Process (a real sequence → numbered) ---------- */
@@ -525,7 +533,7 @@ html:not(.js) .reveal, .no-reveal { opacity: 1; transform: none; }
   .ticker > div { animation: none; }
   .reveal { opacity: 1; transform: none; }
   .js .hero h1 .line > span { transform: none; }
-  .work-item { animation: none; }
+  .work-item, .service { animation: none; }
   .cursor { display: none; }
   ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
 }
