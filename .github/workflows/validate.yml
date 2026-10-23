@@ -1,0 +1,24 @@
+name: Validate site
+
+# The site deploys through Netlify (the contact form needs Netlify Forms).
+# This workflow only checks that nothing is broken before you merge.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check JavaScript syntax
+        run: |
+          node --check assets/js/main.js
+          node --check assets/js/hero-gl.js
+      - name: Check links, assets, anchors, SEO tags and CSP hash
+        run: python3 scripts/validate_site.py
