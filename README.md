@@ -1,4 +1,4 @@
-# Landon Carter Windvogel — Portfolio
+# Landon Carter Windvogel - Portfolio
 
 This is my personal portfolio. It is where I put the work I am actually proud of, explain what I built, and occasionally remind myself that apparently I enjoy writing HTML by hand.
 
